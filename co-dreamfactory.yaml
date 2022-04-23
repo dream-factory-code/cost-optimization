@@ -30,7 +30,7 @@ Resources:
       TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cloudfix-cur-role.yaml
       Parameters:
         ExternalId: !Ref ExternalId
-        DreamFactoryAccount: !Ref CloudFixAccount
+        DreamFactoryAccount: !Ref DreamFactoryAccount
         DatabaseName: !Ref DatabaseName
     Tags:
       - Key: 'dreamfactory'
