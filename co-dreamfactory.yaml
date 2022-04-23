@@ -17,21 +17,21 @@ Resources:
   CURStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cloudfix-cur.yaml
+      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cur.yaml
       Parameters:
         ExternalId: !Ref ExternalId
         DatabaseName: !Ref DatabaseName
       Tags:
         - Key: 'dreamfactory'
-          Value: 'CloudFix Infrastructure'
+          Value: 'DreamFactory Infrastructure'
   CURRoleStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cloudfix-cur-role.yaml
+      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cur-role.yaml
       Parameters:
         ExternalId: !Ref ExternalId
         DreamFactoryAccount: !Ref DreamFactoryAccount
         DatabaseName: !Ref DatabaseName
     Tags:
       - Key: 'dreamfactory'
-        Value: 'CloudFix Infrastructure'
+        Value: 'DreamFactory CloudFix Infrastructure'
