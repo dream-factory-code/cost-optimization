@@ -17,7 +17,7 @@ Resources:
   CURStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cur.yaml
+      TemplateURL: https://github.com/dream-factory-code/cost-optimization/blob/master/dreamfactory-cur.yaml
       Parameters:
         ExternalId: !Ref ExternalId
         DatabaseName: !Ref DatabaseName
@@ -27,7 +27,7 @@ Resources:
   CURRoleStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cur-role.yaml
+      TemplateURL: https://github.com/dream-factory-code/cost-optimization/blob/master/cur-role.yaml
       Parameters:
         ExternalId: !Ref ExternalId
         DreamFactoryAccount: !Ref DreamFactoryAccount
