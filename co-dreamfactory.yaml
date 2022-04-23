@@ -1,0 +1,37 @@
+---
+Description: Stack
+Parameters:
+  DreamFactoryAccount:
+    Type: String
+    Description: DreamFactory
+    Default: '803335938539'
+  ExternalId:
+    Type: String
+    Description: Id used to assume the Athena/CUR Role
+  DatabaseName:
+    Type: String
+    Default: 'dreamfactorydb'
+    Description: Athena Database Name - to access billing data
+
+Resources:
+  CURStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cloudfix-cur.yaml
+      Parameters:
+        ExternalId: !Ref ExternalId
+        DatabaseName: !Ref DatabaseName
+      Tags:
+        - Key: 'dreamfactory'
+          Value: 'CloudFix Infrastructure'
+  CURRoleStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://dreamfactory-public-templates.s3.amazonaws.com/cloudfix-cur-role.yaml
+      Parameters:
+        ExternalId: !Ref ExternalId
+        DreamFactoryAccount: !Ref CloudFixAccount
+        DatabaseName: !Ref DatabaseName
+    Tags:
+      - Key: 'dreamfactory'
+        Value: 'CloudFix Infrastructure'
