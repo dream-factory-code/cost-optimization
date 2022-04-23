@@ -41,9 +41,7 @@ Resources:
                       - ''
                       - - 'arn:aws:s3:::'
                         - 'dreamfactory-cur-'
-                        - !Ref 'AWS::AccountId'
-                        - !Ref ResourceSuffix
-                        
+                        - !Ref 'AWS::AccountId'                        
                     - !Join 
                       - ''
                       - - 'arn:aws:s3:::'
