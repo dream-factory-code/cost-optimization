@@ -364,7 +364,7 @@ Resources:
       ReportKey: !Join 
             - ''
             - - 'dreamfactory/DreamFactory-CUR'
-              - '/DreamFactory-CUR'x
+              - '/DreamFactory-CUR'
      
   AWSCURReportStatusTable:
     Type: 'AWS::Glue::Table'
