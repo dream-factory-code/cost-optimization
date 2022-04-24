@@ -1,0 +1,37 @@
+Description: Stack
+Parameters:
+  DreamFactoryAccount:
+    Type: String
+    Description: DreamFactory
+    Default: '803335938539'
+  ExternalId:
+    Type: String
+    Description: Id used to assume the Athena/CUR Role
+  DatabaseName:
+    Type: String
+    Default: 'dreamfactorydb'
+    Description: Athena Database Name - to access billing data
+Resources:
+  OrgRoleStackSet:
+    Type: AWS::CloudFormation::StackSet
+    DeletionPolicy: Delete
+    Properties:
+      StackSetName: CloudFixOrgStackSet
+      AutoDeployment:
+        Enabled: true
+        RetainStacksOnAccountRemoval: false
+      Description: CloudFix Org Finder/Fixer/Backup and Minimal SSM access roles.
+      PermissionModel: SERVICE_MANAGED
+      ManagedExecution:
+        Active: true
+      TemplateURL: https://cloudfix-public-templates.s3.amazonaws.com/dreamfactory-cur.yaml
+      Parameters:
+        - ParameterKey: ExternalId
+          ParameterValue: !Ref ExternalId
+        - ParameterKey: TenantId
+          ParameterValue: !Ref TenantId
+        - ParameterKey: ChangeManagerApprovalMode
+          ParameterValue: !Ref ChangeManagerApprovalMode
+      Tags:
+        - Key: 'testTag'
+          Value: 'tag'
